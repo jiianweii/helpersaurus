@@ -1,15 +1,16 @@
 "use client";
 
-import { useDropdownContext } from "../_Provider/DropdownNav";
+import { DropdownProps, useDropdownContext } from "../_Provider/DropdownNav";
 
 export default function MainView({ children }: { children: React.ReactNode }) {
-  const { closeMenu } = useDropdownContext();
+  const { closeMenu } = useDropdownContext() as DropdownProps;
   return (
     <main
       id="mainView"
       className="flex flex-col"
       onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-        if (e.target.id != "menu") closeMenu();
+        const target = e.target as HTMLElement;
+        if (target.id != "menu") closeMenu();
       }}
     >
       {children}

@@ -2,11 +2,11 @@
 
 import { Icon } from "@iconify/react";
 import DropdownMenu from "./DropdownMenu";
-import { useDropdownContext } from "../_Provider/DropdownNav";
+import { DropdownProps, useDropdownContext } from "../_Provider/DropdownNav";
 import { usePathname } from "next/navigation";
 
 export default function Menu() {
-  const { openMenu, isOpen } = useDropdownContext();
+  const { openMenu, isOpen } = useDropdownContext() as DropdownProps;
   const params = usePathname();
   const urlParam = params?.split("").slice(1).join("");
   return (

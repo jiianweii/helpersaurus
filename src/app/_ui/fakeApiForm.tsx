@@ -23,6 +23,7 @@ export default function FakeApiForm() {
       setData("");
       setUrl("http://localhost:3000/mockapi/api/" + id);
     } catch (err) {
+      console.error(err);
       toast.error("Invalid JSON data. Please try again.");
     }
     setIsLoading(false);

@@ -1,7 +1,7 @@
 interface TextareaProps {
   data: string;
   setData: React.Dispatch<React.SetStateAction<string>>;
-  placeholder: string;
+  placeholder?: string;
 }
 
 export default function Textarea({

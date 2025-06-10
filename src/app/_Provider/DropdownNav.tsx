@@ -2,7 +2,13 @@
 
 import { createContext, useContext, useState } from "react";
 
-const Context = createContext();
+const Context = createContext<DropdownProps | undefined>(undefined);
+
+export interface DropdownProps {
+  isOpen: boolean;
+  closeMenu: () => void;
+  openMenu: () => void;
+}
 
 export function useDropdownContext() {
   return useContext(Context);
