@@ -1,12 +1,13 @@
 import { getData } from "@/app/_lib/data-service";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  context: { params: { id: string } }
 ) {
-  const data = await getData(params.id);
-  const selected = data?.[0].json;
+  const { id } = context.params;
+  const data = await getData(id);
+  const selected = data?.[0]?.json;
 
   return NextResponse.json(selected);
 }

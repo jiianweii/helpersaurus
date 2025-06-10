@@ -5,6 +5,7 @@ import Navigation from "./_components/Navigation";
 import { Toaster } from "sonner";
 import { DropdownNav } from "./_Provider/DropdownNav";
 import MainView from "./_ui/MainView";
+import { Analytics } from "@vercel/analytics/next";
 
 const JosefinSans = Josefin_Sans({
   weight: ["300", "400", "700"],
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={`${JosefinSans.className} antialiased`}>
         <DropdownNav>
           <MainView>
+            <Analytics />
             <Navigation />
             <Toaster position="top-center" richColors />
             {children}
