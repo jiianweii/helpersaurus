@@ -9,6 +9,7 @@ export const isValidJsObj = (obj: string) => {
     if (typeof parsedObject != "object") return "";
     return JSON.stringify(parsedObject);
   } catch (err) {
+    console.error(err);
     return "";
   }
 };
